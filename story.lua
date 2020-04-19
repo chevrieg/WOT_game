@@ -8,11 +8,13 @@ function story_load()
   sp_background = love.graphics.newQuad(0, 0, 800, 600, image_background:getDimensions())
 
   dialog1 = love.audio.newSource("assets/dialog.mp3", "static")
+  dialogbis = love.audio.newSource("assets/dialogbis.mp3", "static")
   dialog2 = love.audio.newSource("assets/dialog2.mp3", "static")
   dialog3 = love.audio.newSource("assets/dialog3.mp3", "static")
   dialog4 = love.audio.newSource("assets/dialog4.mp3", "static")
   dialog5 = love.audio.newSource("assets/dialog5.mp3", "static")
   dialog6 = love.audio.newSource("assets/dialog6.mp3", "static")
+  screamer = love.audio.newSource("assets/screamer.mp3", "static")
 
   dje = love.graphics.newImage("assets/dje.png")
   guss = love.graphics.newImage("assets/guigui.png")
@@ -21,6 +23,7 @@ function story_load()
   antho = love.graphics.newImage("assets/antho.png")
   sha = love.graphics.newImage("assets/sha.png")
   ampli = love.graphics.newImage("assets/ampli.png")
+  exo = love.graphics.newImage("assets/exo.png")
 
   sp_dje = love.graphics.newQuad(0, 0, 256, 256, dje:getDimensions())
   sp_guss = love.graphics.newQuad(0, 0, 256, 256, guss:getDimensions())
@@ -29,6 +32,7 @@ function story_load()
   sp_antho = love.graphics.newQuad(0, 0, 256, 256, antho:getDimensions())
   sp_sha = love.graphics.newQuad(0, 0, 256, 256, sha:getDimensions())
   sp_ampli = love.graphics.newQuad(0, 0, 256, 256, ampli:getDimensions())
+  sp_exo = love.graphics.newQuad(0, 0, 256, 256, exo:getDimensions())
 
   screenWidth, screenHeight = love.window.getMode()
 
@@ -37,7 +41,9 @@ function story_load()
              dialog3,
               dialog4,
             dialog5,
-          dialog6}
+          dialog6,
+          dialogbis,
+          screamer}
 
   persos = {{dje, sp_dje},
             {guss, sp_guss},
@@ -45,7 +51,9 @@ function story_load()
             {kev, sp_kev},
             {antho, sp_antho},
             {sha, sp_sha},
-            {ampli, sp_ampli}}
+            {ampli, sp_ampli},
+            {exo, sp_exo}
+          }
 end
 
 function story_init_dialog()
@@ -59,7 +67,13 @@ function next_dialog()
     text = story[story_index][1]
     image = persos[story[story_index][2]]
     if dialogs[story[story_index][3]] ~= nil then
-      love.audio.play(dialogs[story[story_index][3]])
+      play_index = story[story_index][3]
+      if play_index == 1 then
+        if string.len(text) < 25 then
+          play_index = 7
+        end
+      end
+      love.audio.play(dialogs[play_index])
     end
   else
     if current_level == 7 then
@@ -75,6 +89,20 @@ function story_update(dt)
   if next == 1 then
     timer_next = timer_next - dt
   end
+
+  touches = love.touch.getTouches()
+
+  for i, id in ipairs(touches) do
+      local x, y = love.touch.getPosition(id)
+      if x > 0 and x < 800 then
+        if y > 0 and y < 600 then
+          if next == 0 then
+            next = 1
+        end
+      end
+    end
+  end
+
   if love.keyboard.isDown("space") then
     if next == 0 then
       next = 1

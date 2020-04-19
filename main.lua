@@ -15,7 +15,7 @@ current_level = 1
 current_screen = 0
 
 function love.load()
-  love.window.setTitle("Rock Band Whispers on tree")
+  love.window.setTitle("WOT Game")
   screen_load()
   story_load()
   game_load()

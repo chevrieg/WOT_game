@@ -5,6 +5,9 @@ local total = 0
 local pourcent = 0
 
 function debrief_load()
+  win = love.audio.newSource("assets/WOT_win.mp3", "static")
+  fail = love.audio.newSource("assets/WOT_fail.mp3", "static")
+
   image_background = love.graphics.newImage("assets/background.png")
   sp_background = love.graphics.newQuad(0, 0, 800, 600, image_background:getDimensions())
 
@@ -24,13 +27,17 @@ function debrief_init(val1, val2)
   valid = val1
   total = val2
   pourcent = valid * 100 / total
-  objectif = 95
+  objectif = 92
   if current_level == 6 then
     objectif = 80
   else
-    objectif = 95
+    objectif = 92
   end
-  --love.audio.play(dialog1)
+  if pourcent < objectif then
+    love.audio.play(fail)
+  else
+    love.audio.play(win)
+  end
 end
 
 function debrief_update(dt)
@@ -46,9 +53,11 @@ function debrief_update(dt)
   if next == 1 and not love.keyboard.isDown("space") and timer_next < 0 then
       if pourcent < objectif then
         current_screen = 2
+        love.audio.stop()
       else
         current_level = current_level + 1
         current_screen = 1
+        love.audio.stop()
       end
   end
 end

@@ -15,6 +15,8 @@ local y_stop = 550
 
 local pourcent = 0
 
+local end_counter = 3
+
 function game_load()
 
   image_background = love.graphics.newImage("assets/background.png")
@@ -34,9 +36,17 @@ function game_load()
   music6 = love.audio.newSource("assets/whispers_hero_6.mp3", "static")
   winner = love.audio.newSource("collide.wav", "static")
   looser = love.audio.newSource("collide.wav", "static")
+
+  bad_1 = love.audio.newSource("assets/WOT_bad_1.mp3", "static")
+  bad_2 = love.audio.newSource("assets/WOT_bad_2.mp3", "static")
+  bad_3 = love.audio.newSource("assets/WOT_bad_3.mp3", "static")
+  bad_4 = love.audio.newSource("assets/WOT_bad_4.mp3", "static")
+
+  bads = {bad_1, bad_2, bad_3, bad_4}
 end
 
 function game_init()
+  end_counter = 3
   pourcent = 0
   progress = 0
   notes = {}
@@ -132,7 +142,12 @@ end
 
 function game_update(dt)
   if table.getn(notes) < 1 then
-    current_screen = current_screen + 1
+    if end_counter < 0 then
+      love.audio.stop()
+      current_screen = current_screen + 1
+    else
+      end_counter = end_counter - dt
+    end
   end
 
   for i, j in ipairs(particles) do
@@ -156,28 +171,44 @@ function game_update(dt)
     -- remove unchecked note
     if progress > notes[1].speed + 0.1 then
       if not notes[1].got then
-        love.audio.play(looser)
+        love.audio.play(bads[math.random(1, 4)])
       end
       table.remove(notes, 1)
     end
   end
   if table.getn(notes) > 0 then
     if ((progress > notes[1].speed - 0.1) and (progress < notes[1].speed + 0.1)) then
+      a_press = love.keyboard.isDown("a")
+      e_press = love.keyboard.isDown("e")
+      t_press = love.keyboard.isDown("t")
+      u_press = love.keyboard.isDown("u")
+      o_press = love.keyboard.isDown("o")
+
       if love.keyboard.isDown("a") and notes[1].value == 84 then
-        notes[1].got = true
-        score = score + 1
+        if not e_press and not t_press and not u_press and not o_press then
+          notes[1].got = true
+          score = score + 1
+        end
       elseif love.keyboard.isDown("e") and notes[1].value == 86 then
-        notes[1].got = true
-        score = score + 1
+        if not a_press and not t_press and not u_press and not o_press then
+          notes[1].got = true
+          score = score + 1
+        end
       elseif love.keyboard.isDown("t") and notes[1].value == 88 then
-        notes[1].got = true
-        score = score + 1
+        if not a_press and not e_press and not u_press and not o_press then
+          notes[1].got = true
+          score = score + 1
+        end
       elseif love.keyboard.isDown("u") and notes[1].value == 89 then
-        notes[1].got = true
-        score = score + 1
+        if not a_press and not e_press and not t_press and not o_press then
+          notes[1].got = true
+          score = score + 1
+        end
       elseif love.keyboard.isDown("o") and notes[1].value == 91 then
-        notes[1].got = true
-        score = score + 1
+        if not a_press and not e_press and not t_press and not u_press then
+          notes[1].got = true
+          score = score + 1
+        end
       -- else
       --   love.audio.play(looser)
       end
@@ -228,14 +259,15 @@ function game_draw()
   -- love.graphics.print(string.format("Current measure = %d", current_mesure), 0, 115)
   if pourcent <= 70 then
     love.graphics.setColor(192/255, 57/255, 43/255 , 0.9)
-  elseif pourcent <= 95 then
+  elseif pourcent <= 92 then
     love.graphics.setColor(211/255, 84/255, 0/255 , 0.9)
   else
     love.graphics.setColor(46/255, 204/255, 113/255 , 0.9)
   end
-  love.graphics.rectangle("fill", 20, 30, (760/100) * pourcent, 32)
+  love.graphics.rectangle("fill", 740, 20 + 560 - (560/100) * pourcent, 30, (560/100) * pourcent)
   love.graphics.setColor(0.0, 0.0, 0.0, 1)
-  love.graphics.rectangle("line", 20, 30, 760, 32)
+  --love.graphics.rectangle("line", 20, 30, 760, 32)
+  love.graphics.rectangle("line", 740, 20, 30, 560)
   --love.graphics.print(string.format("SCORE = %d / %d", score, score_max), 50, 100)
 
   love.graphics.setColor(1, 1, 1, 0.8)
