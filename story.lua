@@ -63,7 +63,8 @@ function next_dialog()
     end
   else
     if current_level == 7 then
-      love.window.close()
+      current_level = 1
+      current_screen = 0
     else
     current_screen = 2
     end
@@ -94,6 +95,6 @@ function story_draw()
   if story[story_index][2] ~= 0 then
     love.graphics.draw(image[1], image[2], 265, 100)
   end
-  love.graphics.printf(text, 100, 400, screenWidth, "center")
+  love.graphics.printf(text, 0, 400, screenWidth, "center")
 
 end

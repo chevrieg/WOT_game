@@ -13,6 +13,8 @@ local t_stop = 600
 local y_start = 100
 local y_stop = 550
 
+local pourcent = 0
+
 function game_load()
 
   image_background = love.graphics.newImage("assets/background.png")
@@ -35,6 +37,7 @@ function game_load()
 end
 
 function game_init()
+  pourcent = 0
   progress = 0
   notes = {}
   song = require(string.format("assets/level_%d", current_level))
@@ -199,6 +202,9 @@ function game_update(dt)
         test.size = lerp(10, 64, 1 - (test.speed - progress))
       end
   end
+
+  pourcent = score * 100 / score_max
+
 end
 
 function game_draw()
@@ -220,7 +226,17 @@ function game_draw()
   -- love.graphics.print(string.format("array size = %d", table.getn(notes)), 0, 75)
   -- love.graphics.print(string.format("M = %.1f, M*2 = %.1f", mesure, mesure2), 0, 100)
   -- love.graphics.print(string.format("Current measure = %d", current_mesure), 0, 115)
-  love.graphics.print(string.format("SCORE = %d / %d", score, score_max), 50, 100)
+  if pourcent <= 70 then
+    love.graphics.setColor(192/255, 57/255, 43/255 , 0.9)
+  elseif pourcent <= 95 then
+    love.graphics.setColor(211/255, 84/255, 0/255 , 0.9)
+  else
+    love.graphics.setColor(46/255, 204/255, 113/255 , 0.9)
+  end
+  love.graphics.rectangle("fill", 20, 30, (760/100) * pourcent, 32)
+  love.graphics.setColor(0.0, 0.0, 0.0, 1)
+  love.graphics.rectangle("line", 20, 30, 760, 32)
+  --love.graphics.print(string.format("SCORE = %d / %d", score, score_max), 50, 100)
 
   love.graphics.setColor(1, 1, 1, 0.8)
   love.graphics.line(a_start, y_start, a_stop, y_stop)
