@@ -1,0 +1,21 @@
+story = {}
+story[1] = {"C'est pas mal tout ça !", 3, 1}
+story[2] = {"Après un riff comme ça il faut un bon solo !", 3, 1}
+story[3] = {"Je l'ai pas écrit encore.", 1, 1}
+story[4] = {"Tu compte l'écrire bientôt ?", 2, 1}
+story[5] = {"Non, y'a pas le feu !", 1, 1}
+story[6] = {"Il reste 2 répètes avant le concert...", 4, 1}
+story[7] = {"Ah bon on a un concert ?", 5, 2}
+story[8] = {"Ben ouai les mecs il faut suivre un peu !", 3, 1}
+story[9] = {"La semaine prochaine on teste le morceau 3 ?", 2, 1}
+story[10] = {"Djé tu as réparé ton ampli ?", 2, 1}
+story[11] = {"C'est pour bientôt j'ai passé ma commande sur Conrad !", 1, 1}
+story[12] = {"Une semaine plus tard ...", 0, 0}
+story[13] = {"Bon les mecs vous êtes prêt à voir la bête ?", 1, 3}
+story[14] = {"*# CrUnch *#", 7, 4}
+story[15] = {"Djé ? c'est quoi cette merde ?", 3, 1}
+story[16] = {"T'inquiètes c'est juste un petit réglage ;-)", 1, 1}
+story[17] = {"Un coup de potard à gauche et bim bam boom, nickel :-)", 1, 1}
+story[18] = {"*# CrUnch *#", 7, 4}
+story[19] = {"Allez c'est parti !", 1, 1}
+return story

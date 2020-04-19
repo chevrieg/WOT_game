@@ -1,0 +1,34 @@
+story = {}
+story[1] = {"Alors ?", 1, 1}
+story[2] = {"Moi j'aime beaucoup, mais c'est du rock ou du blues ?", 2, 1}
+story[3] = {"Je sais pas trop ...", 1, 1}
+story[4] = {"C'est du roues ou du block !", 3, 1}
+story[5] = {"On commence à être rôder pour le concert.", 3, 1}
+story[6] = {"Super, finalement je vais prendre un autre ampli pour le concert !", 1, 1}
+story[7] = {"Ah ...", 3, 1}
+story[8] = {"Mais on a un concert ?", 5, 2}
+story[9] = {"...", 3, 3}
+story[10] = {"Pour une fois la question n'est pas si bête ?", 2, 1}
+story[11] = {"Vous avez entendu parler du confinement ?", 2, 1}
+story[12] = {"!!!?", 5, 2}
+story[13] = {"Il faut que je vous avoue un truc ...", 2, 1}
+story[14] = {"Le concert est annulé ...", 2, 1}
+story[15] = {"...", 2, 0}
+story[16] = {"Mais non ! Rock and Roll never die !!!!", 1, 3}
+story[17] = {"...", 0, 0}
+story[18] = {"Vous êtes d'accord que ce jeu se déroule dans une réalité alternative ?", 1, 3}
+story[19] = {"!!!?", 5, 2}
+story[20] = {"Alors il suffit que Guss orginise un concert virtuel dans son jeu !", 1, 1}
+story[21] = {"Je sais pas trop, ça fait trois jour que je code ...", 2, 1}
+story[22] = {"Je commence à fatiguer un peu !", 2, 1}
+story[23] = {"...", 0, 0}
+story[24] = {"J'ai une idée !", 4, 1}
+story[25] = {"Tiens Guss, prends du Monster !", 4, 1}
+story[26] = {"*# CrUnch *#", 2, 6}
+story[27] = {"Bon, je crois qu'on a perdu Guss", 3, 1}
+story[28] = {"...", 0, 0}
+story[29] = {"Mec !", 2, 3}
+story[30] = {"Perdu ? Non ! Je suis de nouveau dans la course !", 2, 1}
+story[31] = {"Vous êtes près pour le concert virtuel les mecs !?", 2, 1}
+
+return story
