@@ -139,8 +139,8 @@ function game_update(dt)
   end
 
   time = time + dt
-  if love.keyboard.isDown("escape") then
-    love.window.close()
+  if love.keyboard.isDown("return") then
+    game_init()
   end
 
   if love.keyboard.isDown("down") then
@@ -163,16 +163,16 @@ function game_update(dt)
       if love.keyboard.isDown("a") and notes[1].value == 84 then
         notes[1].got = true
         score = score + 1
-      elseif love.keyboard.isDown("z") and notes[1].value == 86 then
+      elseif love.keyboard.isDown("e") and notes[1].value == 86 then
         notes[1].got = true
         score = score + 1
-      elseif love.keyboard.isDown("e") and notes[1].value == 88 then
+      elseif love.keyboard.isDown("t") and notes[1].value == 88 then
         notes[1].got = true
         score = score + 1
-      elseif love.keyboard.isDown("r") and notes[1].value == 89 then
+      elseif love.keyboard.isDown("u") and notes[1].value == 89 then
         notes[1].got = true
         score = score + 1
-      elseif love.keyboard.isDown("t") and notes[1].value == 91 then
+      elseif love.keyboard.isDown("o") and notes[1].value == 91 then
         notes[1].got = true
         score = score + 1
       -- else

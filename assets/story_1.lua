@@ -23,7 +23,11 @@ story[21] = {"On peut tricher ou pas ?", 6, 1}
 story[22] = {"Non !", 2, 1}
 story[23] = {"Bah alors je joue pas, en plus ça à l'air d'être de la merde !", 6, 1}
 story[24] = {"Du coup le jeu c'est un peu un Guitar Hero du pauvre.", 2, 1}
-story[25] = {"Il faut jouer les notes en rythme avec les touches A Z E R T.", 2, 1}
-story[26] = {"On va commencer par un petit exemple ;-)", 2, 1}
-story[27] = {"!!!?", 5, 2}
+story[25] = {"Il faut jouer les notes en rythme avec les touches \"A Z E R T\".", 2, 1}
+story[26] = {"Attends Guss, les touches sont un peu près les unes des autres non ?", 1, 1}
+story[27] = {"J'ai bien peur d'appuyer plusieurs touches en même temps...", 1, 1}
+story[28] = {"Pas con, on va plutôt partir sur \"A E T U O\" alors !", 2, 1}
+story[29] = {"En cas de panique, vous pouvez recommencer le niveau en appuyant sur \"entrée\" !", 2, 1}
+story[30] = {"On va commencer par un petit exemple ;-)", 2, 1}
+story[31] = {"!!!?", 5, 2}
 return story
