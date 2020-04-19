@@ -1,3 +1,4 @@
+local utf8 = require "utf8"
 local next = 0
 local timer_next = 0.2
 local story_index = 1
@@ -70,7 +71,6 @@ function next_dialog()
 end
 
 function story_update(dt)
-
   if next == 1 then
     timer_next = timer_next - dt
   end
@@ -86,6 +86,7 @@ function story_update(dt)
       next_dialog()
       -- current_screen = 0
   end
+
 end
 
 function story_draw()
@@ -93,7 +94,6 @@ function story_draw()
   if story[story_index][2] ~= 0 then
     love.graphics.draw(image[1], image[2], 265, 100)
   end
-  love.graphics.printf(text, 0, 400, screenWidth, "center")
-  --love.graphics.print(text, 200, 400)
+  love.graphics.printf(text, 100, 400, screenWidth, "center")
 
 end

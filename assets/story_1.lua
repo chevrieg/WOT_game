@@ -1,8 +1,8 @@
 story = {}
 story[1] = {"Tuto : Les présentations", 0, 0}
-story[2] = {"Bienvenue dans le jeu \"Rock Band: Whispers On Tree !\"", 2, 1}
-story[3] = {"C'est guigui qui vous parle !\n Voici les personnages du jeu.", 2, 1}
-story[4] = {"Moi c'est djé ! Je joue de la guitatr, de la pétanque et je bois du jaune.", 1, 3}
+story[2] = {"Bienvenue dans le jeu \"Rock Band: Whispers On Tree\" !", 2, 1}
+story[3] = {"C'est guigui qui vous parle ! Voici les personnages du jeu.", 2, 1}
+story[4] = {"Moi c'est djé ! Je joue de la guitare, de la pétanque et je bois du jaune.", 1, 3}
 story[5] = {"Moi c'est Léo, je suis corse, espagnol.", 3, 1}
 story[6] = {"Mais je suis né à Paris.", 3, 1}
 story[7] = {"Moi c'est Kevin, AKA La pépite et addict au Monster", 4, 1}
@@ -23,11 +23,11 @@ story[21] = {"On peut tricher ou pas ?", 6, 1}
 story[22] = {"Non !", 2, 1}
 story[23] = {"Bah alors je joue pas, en plus ça à l'air d'être de la merde !", 6, 1}
 story[24] = {"Du coup le jeu c'est un peu un Guitar Hero du pauvre.", 2, 1}
-story[25] = {"Il faut jouer les notes en rythme avec les touches \"A Z E R T\".", 2, 1}
+story[25] = {"Il faut jouer les notes en rythme avec les touches A Z E R T.", 2, 1}
 story[26] = {"Attends Guss, les touches sont un peu près les unes des autres non ?", 1, 1}
 story[27] = {"J'ai bien peur d'appuyer plusieurs touches en même temps...", 1, 1}
-story[28] = {"Pas con, on va plutôt partir sur \"A E T U O\" alors !", 2, 1}
-story[29] = {"En cas de panique, vous pouvez recommencer le niveau en appuyant sur \"entrée\" !", 2, 1}
+story[28] = {"Pas con, on va plutôt partir sur A E T U O alors !", 2, 1}
+story[29] = {"En cas de panique, vous pouvez recommencer le niveau en appuyant sur entrée !", 2, 1}
 story[30] = {"On va commencer par un petit exemple ;-)", 2, 1}
 story[31] = {"!!!?", 5, 2}
 return story
